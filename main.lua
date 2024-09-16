@@ -159,6 +159,14 @@ function love.update(dt)
         player2.dy = 0
     end
 
+    if bola.dx > 0 and bola.x > VIRTUAL_WIDTH / 2 + 70 then
+      if bola.y > player2.y + 20 then
+        player2.dy = PADDLE_SPEED
+      elseif bola.y < player2.y then
+        player2.dy = -PADDLE_SPEED
+      end
+    end
+
     player1:update(dt)
     player2:update(dt)
 end
